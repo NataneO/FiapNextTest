@@ -11,20 +11,20 @@ Este projeto é uma landing page desenvolvida em **Next.js**, **TypeScript**, **
 
 ## Como Executar
 
-1. ** Clonar o repositório: **
+1. **Clonar o repositório:**
 
    ```bash
    git clone https://github.com/NataneO/FiapNextTest
    cd FiapNextTest
    ```
-2. ** Instalar dependências: **
+2. **Instalar dependências:**
 
    ```bash
    npm install
    # ou
    yarn install
    ```
-3. ** Rodar em modo de desenvolvimento: **
+3. **Rodar em modo de desenvolvimento:**
 
    ```bash
    npm run dev
@@ -92,7 +92,7 @@ README.md
 
 ### FAQ
 
-* Perguntas frequentes em acordeão.
+* Perguntas frequentes.
 * Animação de show/hide itens.
 
 ## Responsividade
