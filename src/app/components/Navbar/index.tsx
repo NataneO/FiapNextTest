@@ -18,14 +18,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`${style.navbar} ${scrolled ? style.scrolled : ""} ${scrolled? "bg-gray-500" : ""}`}>
+    <nav className={`${style.navbar} ${scrolled? "bg-gray-500" : "bg-transparent"} w-full fixed top-0 left-0 flex align-center justify-center`}>
       <Image
         src="/svgs/logo-fiap.svg"
         alt="Logo FIAP"
         width={100}
         height={50}
       />
-       <div className={style.progress} style={{ width: `${scrollWidth}%` }} />
+       <div className={`${style.progress} ${scrolled? "bg-highlight" : ""} absolute left-0 bottom-0 `} style={{ width: `${scrollWidth}%` }} />
     </nav>
   );
 };
