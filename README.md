@@ -105,12 +105,11 @@ README.md
 
 ### Anotações
 
-Como adicional para esse projeto, deixo [aqui um arquivo em .pdf](link) com todas minhas anotaçoes durante o decorrer do desenolvimento. Assim, voce que esta lendo o projeto, pode ter uma maior contexto de como funciona meu processo criativo. 
+Disponibilizo [minhas anotaçoes de desenvolvimento(PDF)](link) para detalhes sobre o processo criativo, decisoes de design e padroes adotados.
 
 ### Demonstrativo
 
 Deixo aqui, tambem, um video demonstrativo do projeto.
-
 
 https://github.com/user-attachments/assets/a10b2c9c-46ea-4179-aa90-ad3012efc67e
 
