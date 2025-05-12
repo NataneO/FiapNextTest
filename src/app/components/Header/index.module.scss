@@ -1,9 +1,30 @@
+@keyframes revealFromTop {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromBottom {
+  0% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
 .scrollSection {
   position: relative;
   min-height: 100vh; 
-  padding-top: 8rem; 
+  padding-top: 30rem; 
   display: flex;
-  align-items: center;
   justify-content: center;
   overflow: hidden;
 
@@ -15,33 +36,47 @@
 
 .textWrapper {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  position:relative;
+  justify-content: center;
+  position: relative;
 
   h1 {
-   
-  position:absolute;
-  
-  }
-
-  .textBottom {
-    padding-top:5rem;
-    z-index: 1;
-    width: fit-content;
+    position: absolute;
   }
 
   .textTop {
-   
     z-index: 2;
     color: white;
     max-width: clamp(400px, 80vw, 1000px);
     text-align: left;
 
-    .prefix{
-      white-space: nowrap;
-      padding-left:76px;
-     
+    &>span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(-20%);
+      animation: revealFromTop 0.6s ease-out forwards;
+
+      &:first-child {
+        animation-delay: 0.1s;
+      }
+
+      &:last-child {
+        animation-delay: 0.4s;
+      }
     }
+
+    .prefix {
+      white-space: nowrap;
+      padding-left: 76px;
+    }
+  }
+
+  .textBottom {
+    z-index: 1;
+    width: fit-content;
+    padding-top: 4.9rem;
+    opacity: 0;
+    transform: translateY(20%);
+    animation: revealFromBottom 0.6s ease-out forwards;
+    animation-delay: 0.8s;
   }
 }
