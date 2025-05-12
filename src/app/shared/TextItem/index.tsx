@@ -6,20 +6,20 @@ export const TextItem = ({
   text,
   onClick,
   isSelected = false,
-  onMouseEnter,
-  onMouseLeave,
-  variant = "top-border",
-  hoverEffect = "border",
+  isHovered = false,
+  variant = "half-border",
 }: AnimatedTextItemProps) => {
+  const borderClass = variant === "full-border" ? "full-border-t" : "half-border-t";
+
   return (
     <div
-      onClick={onClick} 
-      style={{ cursor: 'pointer', padding: '1rem', borderTop: variant === "top-border" ? "2px solid black" : undefined }}
-      className={`${hoverEffect} ${isSelected ? "selected" : ""}`}
-      onMouseEnter ={onMouseEnter}
-      onMouseLeave = {onMouseLeave}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+      className={`${borderClass} ${isSelected ? "active" : ""} ${isHovered ? "is-hovered" : ""} mb-14`}
     >
-      <div>{text}</div>
+      <div className={`text-medium body-xl ${(isHovered || isSelected) ? "text-primary" : "text-gray-400"}`}>
+        {text}
+      </div>
     </div>
   );
 };

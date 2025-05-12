@@ -1,16 +1,27 @@
-import Image from 'next/image'
+"use client"
+import Image from "next/image";
+import style from "./index.module.scss";
+import { useState, useEffect } from "react";
 
-const NavBar = () => {
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header style={{ height: "64px" }}>
+    <nav className={`${style.navbar} ${scrolled? "bg-gray-500" : ""}`}>
       <Image
         src="/svgs/logo-fiap.svg"
         alt="Logo FIAP"
-        width={100} 
+        width={100}
         height={50}
       />
-    </header>
-  )
-}
+    </nav>
+  );
+};
 
-export default NavBar
+export default Navbar;

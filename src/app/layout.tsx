@@ -1,4 +1,6 @@
 import "./globals.css";
+import "../../public/fonts/gotham.css";
+import './styles/index.scss';
 import Navbar from "./components/Navbar";
 import { ReactNode } from "react";
 

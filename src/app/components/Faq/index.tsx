@@ -35,27 +35,27 @@ export default function Faq() {
   ];
 
   return (
-    <div>
-      <div>
-        <h2>FAQ</h2>
-        <span>Dúvidas Frequentes</span>
+    <section className={`p-160`}>
+      <div className={`mb-105`}>
+        <h2 className={`text-medium text-primary heading-xl`}>FAQ</h2>
+        <span className={`text-medium text-highlight body-xl`}>Dúvidas Frequentes</span>
       </div>
-      <div>
+      <div className={`grid three-columns`}>
         {faqData.map((faqItem, index) => (
-          <div key={faqItem.question}>
+          <div className={`h-20 pb-1 w-435`} key={faqItem.question}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}>
             <TextItem
               text={faqItem.question}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              variant="top-border"
-              hoverEffect="border"
+              variant="full-border"
+              isHovered={hoveredIndex === index}
             />
             {hoveredIndex === index && (
-              <div>{faqItem.answer}</div>
+              <div  className={`text-medium text-primary body-lg`}>{faqItem.answer}</div>
             )}
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

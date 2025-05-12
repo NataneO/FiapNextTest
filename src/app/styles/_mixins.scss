@@ -1,0 +1,7 @@
+@import './variables';
+
+@mixin font-weight-class($weight: $font-weight-regular) {
+  font-family: $font-family-gotham;
+  font-weight: $weight;
+  font-style: normal;
+}
