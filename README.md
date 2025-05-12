@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FIAP - Landing Page -  Next.js
 
-## Getting Started
+Este projeto é uma landing page desenvolvida em **Next.js**, **TypeScript**, **SASS** e **GSAP**, organizada em seções/componentes reutilizáveis. Foi criada como parte de um teste para a vaga de Front-end na FIAP, com foco em responsividade e animações interativas.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* **Next.js**: Framework React para aplicações híbridas (SSG/SSR).
+* **GSAP**: Biblioteca para criação de animações robustas e controladas via ScrollTrigger.
+* **SASS**: Pré-processador CSS para estilização modular.
+* **TypeScript**: Tipagem estática para maior segurança e qualidade de código.
+
+## Como Executar
+
+1. ** Clonar o repositório: **
+
+   ```bash
+   git clone https://github.com/NataneO/FiapNextTest
+   cd FiapNextTest
+   ```
+2. ** Instalar dependências: **
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+3. ** Rodar em modo de desenvolvimento: **
+
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+4. **Acessar** em `http://localhost:3000`.
+
+
+## Estrutura de Pastas
+
+```
+public/                    # Imagens e assets estáticos
+│   ├── fonts
+│   ├── imgs
+│   └── svgs        
+src/app/
+├── components/            # Componentes para cada seção. 
+│   ├── Navbar/                  
+│   ├── Header/
+│   ├── Intro/
+│   ├── Transition/
+│   ├── Courses/
+│   └── FAQ/
+├── shared/                # Componentes compartilhados
+│   └── TextItem.tsx      
+├── styles/                # Arquivos SASS globais e parciais
+│   ├── _variables.scss
+│   ├── _mixins.scss
+│   └── index.scss
+package.json
+tsconfig.json              
+README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Seções 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Navbar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Menu responsivo com logo da FIAP centralizado.
+* Barra de progresso que cresce a medida que o scroll avança.
 
-## Learn More
+### Header
 
-To learn more about Next.js, take a look at the following resources:
+* Banner inicial com título e subtítulo impactantes.
+* Efeito de cascata no texto, ao carregar a pagina.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Intro
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Texto rolando horizontalmente de forma infinita, controlado pelo ScrollTrigger.
+* Direção do scroll altera o movimento do texto (direita/esquerda).
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Animação Principal
+### Transição - Água
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Seção intermediária que simula uma onda de água.
+* Utiliza Scrolltrigger do GSAP para criar transições suaves entre as imagens, criando assim o efeito de onda.
+* Onda avança ou retrocede conforme a direção do scroll.
+
+### Cursos
+
+* Abas (*tabs*) que alternam entre diferentes stacks e habilitam a visualizaçao dos cursos correspondentes..
+* Exibição de cards de cursos em um grid responsivo.
+
+### FAQ
+
+* Perguntas frequentes em acordeão.
+* Animação de show/hide itens.
+
+## Responsividade
+
+* Layout fluido para dispositivos móveis e desktops.
+* Ajustes de tipografia, espaçamentos e tamanhos de imagem.
+
+
+## Bônus
+
+### Anotações
+
+Como adicional para esse projeto, deixo [aqui um arquivo em .pdf](link) com todas minhas anotaçoes durante o decorrer do desenolvimento. Assim, voce que esta lendo o projeto, pode ter uma maior contexto de como funciona meu processo criativo. 
+
+## Autor
+
+Natane — Desenvolvedora Front-end / UX
+---
+
+*Projeto desenvolvido por Natane em Maio de 2025.*

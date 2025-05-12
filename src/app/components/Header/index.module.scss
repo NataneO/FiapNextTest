@@ -22,15 +22,33 @@
 
 .scrollSection {
   position: relative;
-  min-height: 100vh; 
-  padding-top: 30rem; 
+  min-height: 100vh;
+  padding-top: 30rem;
   display: flex;
   justify-content: center;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    min-height: 120vh;
-    padding-top: 6rem;
+
+    padding-top: 40vh;
+    .textTop {
+      font-size: 3rem;
+      .prefix {
+        padding-left: 32px;
+      }
+    }
+    .textBottom {
+      text-align: right;
+      font-size: 15rem;
+      word-break: break-word;
+      width: 75vw;
+      margin-top: -13rem;
+      padding-top: 0;
+    }
+    
+    .textWrapper{
+      width:100%;
+    }
   }
 }
 
@@ -49,7 +67,7 @@
     max-width: clamp(400px, 80vw, 1000px);
     text-align: left;
 
-    &>span {
+    & > span {
       display: inline-block;
       opacity: 0;
       transform: translateY(-20%);

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import style from "./index.module.scss";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -47,7 +48,7 @@ export default function Transition() {
   }, []);
 
   return (
-    <div className="animation-wrapper" style={{ position: "relative" }}>
+    <div className={`${style.animation}  animation-wrapper relative}`} >
     
       <div
         style={{

@@ -1,35 +1,32 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import style from "./index.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Intro = () => {
-  const topTextRefs = useRef([]);
-  const bottomTextRefs = useRef([]);
+  const topTextRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const bottomTextRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
-   
     const allRefs = [...topTextRefs.current, ...bottomTextRefs.current];
 
     allRefs.forEach((el, i) => {
       if (!el) return;
-
       const direction = i % 2 === 0 ? -50 : 50;
 
-      
       gsap.to(el, {
-        xPercent: direction * 2, 
+        xPercent: direction * 2,
         ease: "none",
         scrollTrigger: {
           trigger: el,
           scrub: true,
           start: "top bottom",
           end: "bottom top",
-          onUpdate: (self) => {
-          
+          onUpdate: self => {
             if (self.progress === 1) {
               gsap.set(el, { xPercent: 0 });
             }
@@ -41,7 +38,6 @@ const Intro = () => {
 
   return (
     <section className="relative overflow-hidden">
-    
       <div className="text-light text-primary heading-lg mb-12 space-y-2">
         {[
           "CURSOS E IMERSÕES. UMA NOVA CULTURA DE MERCADO.",
@@ -49,7 +45,10 @@ const Intro = () => {
         ].map((text, i) => (
           <div
             key={i}
-            ref={(el) => (topTextRefs.current[i] = el)}
+            // 2) Callback ref now returns void
+            ref={el => {
+              topTextRefs.current[i] = el;
+            }}
             className="text-slide pb-1 block whitespace-nowrap"
           >
             <span className="inline-block px-8 bb-solid-2 b-primary">{text}</span>
@@ -59,8 +58,7 @@ const Intro = () => {
         ))}
       </div>
 
-      {/* Imagem */}
-      <div className="relative">
+      <div className={`${style.contentBottom} relative`}>
         <div className="flex justify-around">
           <Image
             src="/imgs/intro.png"
@@ -70,14 +68,10 @@ const Intro = () => {
           />
         </div>
 
-      
         <div
           className={`
             text-medium text-gray-300 display-lg stroke absolute w-full text-center
-            left-0
-            translate-y-1/2 
-            top-full 
-            space-y-2
+            left-0 translate-y-1/2 top-full space-y-2
           `}
         >
           {[
@@ -86,8 +80,12 @@ const Intro = () => {
           ].map((text, i) => (
             <div
               key={i}
-              ref={(el) => (bottomTextRefs.current[i] = el)}
-              className={`text-slide block whitespace-nowrap ${i === 1 ? "italic" : ""}`}
+              ref={el => {
+                bottomTextRefs.current[i] = el;
+              }}
+              className={`text-slide block whitespace-nowrap ${
+                i === 1 ? "italic" : ""
+              }`}
             >
               <span className="inline-block px-8">{text}</span>
               <span className="inline-block px-8">{text}</span>
@@ -97,7 +95,7 @@ const Intro = () => {
         </div>
       </div>
 
-      <div className="spacer" />
+      <div className={`${style.contentBottom} spacer`}/>
     </section>
   );
 };

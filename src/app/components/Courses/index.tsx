@@ -1,12 +1,15 @@
 "use client";
 import { useState } from "react";
 import { Stack, CourseItems, stackLabels } from "./types";
+import style from "./index.module.scss";
 import { TextItem } from "@/app/shared/TextItem";
 
 const Courses = () => {
   const [selectedStack, setSelectedStack] = useState<Stack | "">("technology");
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const [hoveredTab, setHoveredTab] = useState<number | null>(null);
 
   const stacks: Stack[] = ["technology", "innovation", "business"];
 
@@ -56,44 +59,50 @@ const Courses = () => {
   };
 
   return (
-    <section className={`p-160`}>
-      <div className={`flex w-full justify-between mb-105`}>
-        <div>
+    <section className={`${style.coursesContainer}`}>
+      <div className={`${style.coursesHeader} flex w-full justify-between mb-105`}>
+        <div className={`${style.coursesHeaderTitle}`} >
           <h3 className={`text-medium text-primary heading-xl`}>Cursos</h3>
           <span className={`text-medium text-highlight body-xl`}>
             Cursos de curta duração
           </span>
         </div>
 
-        <div className={`flex w-half justify-around`}>
-          {stacks.map((stack) => (
+        <div className={`${style.coursesHeaderTabs} flex w-half justify-around`}
+        >
+          {stacks.map((stack, index) => (
+            <div  onMouseEnter={() => setHoveredTab(index)}
+            onMouseLeave={() => setHoveredTab(null)} key={index}>
             <TextItem
-              key={stack}
+              
               text={stackLabels[stack]}
               onClick={() => setSelectedStack(stack)}
               isSelected={selectedStack === stack}
+              isHovered={hoveredTab === index}
               variant="half-border"
             />
+            </div>
           ))}
         </div>
       </div>
 
       {selectedStack && (
-        <div className="w-half">
-          <h1 className={`mb-105 text-medium heading-md`}>
+        <div className={`${style.coursesContent} w-half`}>
+          <h1 className={`${style.selectedStack} mb-105 text-medium heading-md`}>
             {stackLabels[selectedStack]}
           </h1>
-          <div>
-            {courses[selectedStack]?.map((course, index) => (
+          <div className={`${style.coursesContentData}`}>
+            {courses[selectedStack]?.map((course, index) => 
+            (
               <div
-                key={course.name}
-                className={`${hoveredIndex === index ? "b-highlight" : "b-primary"} flex pt-18 pb-18 bb-solid g-32`}
+                key={index}
+                className={`${style.courseItem} ${hoveredIndex === index ? "b-highlight" : "b-primary"} flex pt-18 pb-18 bb-solid g-32`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}>
               
                 <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"} body-lg`}>{course.name}</span>
                 <div
-                  className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}text-medium text-primary body-md uppercase flex align-center`}
+                  className={`${style.courseData} ${hoveredIndex === index ? "text-highlight" : "text-primary"}text-medium text-primary body-md uppercase flex align-center`}
                 >
                   <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}`} >{course.deliveryMode}</span>
                   {course.deliveryMode &&

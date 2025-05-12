@@ -1,0 +1,29 @@
+.coursesContainer{
+  padding:16rem;
+}
+
+.selectedStack{
+  margin-bottom:10.5rem;
+}
+
+@media (max-width: 768px) {
+  .coursesContainer{
+    padding:1.6rem;
+  }
+
+  .w-half{
+    width: 100%;
+  }
+
+  .courseItem{
+    flex-direction: column-reverse;
+  }
+
+  .courseData{
+    flex-direction: row;
+  }
+  .selectedStack{
+    margin-bottom:1.5rem;
+  }
+  
+}

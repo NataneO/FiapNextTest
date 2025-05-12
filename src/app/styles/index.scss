@@ -150,44 +150,6 @@
   font-size: $font-body-md;
 }
 
-@media (max-width: $breakpoint-sm) {
-  .display-xl {
-    font-size: $font-display-xl;
-  }
-
-  .display-lg {
-    font-size: $font-display-lg;
-  }
-
-  .display-md {
-    font-size: $font-display-md;
-  }
-
-  .heading-xl {
-    font-size: $font-heading-xl;
-  }
-
-  .heading-lg {
-    font-size: $font-heading-lg;
-  }
-
-  .heading-md {
-    font-size: $font-heading-md;
-  }
-
-  .body-xl {
-    font-size: $font-body-xl;
-  }
-
-  .body-lg {
-    font-size: $font-body-lg;
-  }
-
-  .body-md {
-    font-size: $font-body-md;
-  }
-}
-
 // Display grids
 
 .flex {
@@ -311,7 +273,7 @@
     background-color: #f80d5a;
     transition: width 0.4s ease-out;
   }
-
+  
   &.active::before {
     width: 33%;
   }
@@ -422,4 +384,23 @@ canvas {
   transform: translate(-50%, -50%);
   max-width: 100vw;
   max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .flex{
+    flex-direction: column;
+  }
+
+  .p-160 {
+    padding: 1.6rem;
+  }
+
+  .three-columns {
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns:1fr;
+}
+.w-half{
+  width: 100%;
+}
+  
 }
