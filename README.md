@@ -105,7 +105,7 @@ README.md
 
 ### Anotações
 
-Disponibilizo [minhas anotaçoes de desenvolvimento(PDF)](link) para detalhes sobre o processo criativo, decisoes de design e padroes adotados.
+Disponibilizo [minhas anotaçoes de desenvolvimento(PDF)](https://drive.google.com/file/d/1KWTa4vizr-dAK_0snqst-ejN9Vw1AWfi/view?usp=drivesdk) para detalhes sobre o processo criativo, decisoes de design e padroes adotados.
 
 ### Demonstrativo
 
