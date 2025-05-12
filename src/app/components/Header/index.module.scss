@@ -1,0 +1,47 @@
+.scrollSection {
+  position: relative;
+  min-height: 100vh; 
+  padding-top: 8rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-height: 120vh;
+    padding-top: 6rem;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position:relative;
+
+  h1 {
+   
+  position:absolute;
+  
+  }
+
+  .textBottom {
+    padding-top:5rem;
+    z-index: 1;
+    width: fit-content;
+  }
+
+  .textTop {
+   
+    z-index: 2;
+    color: white;
+    max-width: clamp(400px, 80vw, 1000px);
+    text-align: left;
+
+    .prefix{
+      white-space: nowrap;
+      padding-left:76px;
+     
+    }
+  }
+}

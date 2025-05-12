@@ -1,0 +1,50 @@
+//  Colors
+$color-gray-500: #202121;
+
+//  Font Family
+$font-family-gotham: "Gotham HTF", sans-serif;
+
+// Font Weights
+$font-weight-thin: 200;
+$font-weight-light: 300;
+$font-weight-book: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+$font-weight-ultra: 900;
+
+// Colors
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$highlight-color: #F80D5A;
+
+$gray-100: #f5f5f5;
+$gray-300: #454c4f;
+$gray-400:  #949B99;
+$gray-500: #202121;
+$gray-700: #0b0c0d;
+
+// // Font Sizes -- Base 8 Scale
+// $font-display-xl: 3.52rem;
+// $font-display-lg: 1.44rem;
+// $font-display-md: 1.12rem;
+// $font-heading-xl: 9.6rem;
+// $font-heading-lg: 8rem;
+// $font-heading-md: 5.6rem;
+// $font-body-lg: 2.4rem;
+// $font-body-md: 1.6rem;
+// $font-body-sm: 1.3rem;
+
+
+// Font Sizes -- Figma Values
+$font-display-xl: clamp(20rem, 30rem, 35rem);
+$font-display-lg: clamp(12rem, 14.4rem, 14.4rem);
+$font-display-md: clamp(10rem, 11rem, 11rem);
+$font-heading-xl: clamp(6rem, 9rem, 9.2rem);
+$font-heading-lg: clamp(5rem, 8rem, 8.3rem);
+$font-heading-md: clamp(4rem, 5rem, 5.5rem);
+$font-body-xl: clamp(1.5rem, 2rem, 2.2rem);
+$font-body-lg: clamp(1.3rem, 1.6rem, 1.7rem);
+$font-body-md: clamp(1rem, 1.2rem, 1.3rem);
+
+

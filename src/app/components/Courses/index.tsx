@@ -4,7 +4,9 @@ import { Stack, CourseItems, stackLabels } from "./types";
 import { TextItem } from "@/app/shared/TextItem";
 
 const Courses = () => {
-  const [selectedStack, setSelectedStack] = useState<Stack | "">("");
+  const [selectedStack, setSelectedStack] = useState<Stack | "">("technology");
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const stacks: Stack[] = ["technology", "innovation", "business"];
 
@@ -54,44 +56,52 @@ const Courses = () => {
   };
 
   return (
-    <section>
-      <div>
-        <h3>Cursos</h3>
-        <span>Cursos de curta duração</span>
-      </div>
+    <section className={`p-160`}>
+      <div className={`flex w-full justify-between mb-105`}>
+        <div>
+          <h3 className={`text-medium text-primary heading-xl`}>Cursos</h3>
+          <span className={`text-medium text-highlight body-xl`}>
+            Cursos de curta duração
+          </span>
+        </div>
 
-      <div>
-        {stacks.map((stack) => (
-          <TextItem
-            key={stack}
-            text={stackLabels[stack]}
-            onClick={() => setSelectedStack(stack)}
-            isSelected={selectedStack === stack}
-            variant="top-border"
-            hoverEffect="border"
-          />
-        ))}
+        <div className={`flex w-half justify-around`}>
+          {stacks.map((stack) => (
+            <TextItem
+              key={stack}
+              text={stackLabels[stack]}
+              onClick={() => setSelectedStack(stack)}
+              isSelected={selectedStack === stack}
+              variant="half-border"
+            />
+          ))}
+        </div>
       </div>
 
       {selectedStack && (
-        <div>
-          <h1>{stackLabels[selectedStack]}</h1>
+        <div className="w-half">
+          <h1 className={`mb-105 text-medium heading-md`}>
+            {stackLabels[selectedStack]}
+          </h1>
           <div>
-            {courses[selectedStack]?.map((course) => (
-              <div key={course.name}>
-                <TextItem
-                  text={course.name}
-                  variant="bottom-border"
-                  hoverEffect="color"
-                />
-                <div>
-                  <span>{course.deliveryMode}</span>
+            {courses[selectedStack]?.map((course, index) => (
+              <div
+                key={course.name}
+                className={`${hoveredIndex === index ? "b-highlight" : "b-primary"} flex pt-18 pb-18 bb-solid g-32`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}>
+              
+                <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"} body-lg`}>{course.name}</span>
+                <div
+                  className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}text-medium text-primary body-md uppercase flex align-center`}
+                >
+                  <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}`} >{course.deliveryMode}</span>
                   {course.deliveryMode &&
                     course.transmission.length > 0 &&
                     course.transmission[0] !== "" && (
-                      <span style={{ margin: "0 8px" }}>•</span>
+                      <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}`} style={{ margin: "0 8px" }}>•</span>
                     )}
-                  <span>
+                  <span className={`${hoveredIndex === index ? "text-highlight" : "text-primary"}`}>
                     {course.transmission.filter((t) => t).join(" + ")}
                   </span>
                 </div>
