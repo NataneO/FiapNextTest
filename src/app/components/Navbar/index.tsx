@@ -5,21 +5,27 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-
+  const [scrollWidth, setScrollWidth] = useState(0);
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 0);
+    const handleScroll = () => {setScrolled(window.scrollY > 0)
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollWidth(progress);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`${style.navbar} ${scrolled? "bg-gray-500" : ""}`}>
+    <nav className={`${style.navbar} ${scrolled ? style.scrolled : ""} ${scrolled? "bg-gray-500" : ""}`}>
       <Image
         src="/svgs/logo-fiap.svg"
         alt="Logo FIAP"
         width={100}
         height={50}
       />
+       <div className={style.progress} style={{ width: `${scrollWidth}%` }} />
     </nav>
   );
 };
